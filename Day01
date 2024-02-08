@@ -1,0 +1,21 @@
+from sympy import Symbol, divisors, mod_inverse, Poly
+from functools import reduce
+
+# Given data
+points = [[1, 1433771205], [2, 6546261], [3, 1605329328], [4, 740081726], 
+          [5, 1789455974], [6, 1929055614], [7, 1976982446], [8, 59514587], 
+          [9, 309170059], [10, 87933907]]
+modulus = 2147483647
+
+# Lagrange Interpolation in a finite field
+def lagrange_interpolation(points, x, modulus):
+    def L(i):
+        X_i, Y_i = points[i]
+        numer = reduce(lambda x, y: x * y, [(x - X_j) % modulus for j, (X_j, _) in enumerate(points) if j != i], 1)
+        denom = reduce(lambda x, y: x * y, [(X_i - X_j) % modulus for j, (X_j, _) in enumerate(points) if j != i], 1)
+        return Y_i * numer * mod_inverse(denom, modulus) % modulus
+    return sum(L(i) for i in range(len(points))) % modulus
+
+# Calculate the secret using any six points
+secret = lagrange_interpolation(points[:6], 0, modulus)
+secret
