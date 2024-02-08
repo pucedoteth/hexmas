@@ -1,7 +1,7 @@
 from sympy import Symbol, divisors, mod_inverse, Poly
 from functools import reduce
 
-# Given data
+# Given data - its example data please replace it with your copy and paste data from  https://quilibrium.com/hexmas
 points = [[1, 1433771205], [2, 6546261], [3, 1605329328], [4, 740081726], 
           [5, 1789455974], [6, 1929055614], [7, 1976982446], [8, 59514587], 
           [9, 309170059], [10, 87933907]]
