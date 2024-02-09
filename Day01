@@ -4,7 +4,7 @@ from functools import reduce
 # Given data - its example data please replace it with your copy and paste data from  https://quilibrium.com/hexmas
 points =[[1, 1578096352],[2, 1498940494],[3, 29765241],[4, 1772519600]
 ,[5, 410498836],[6, 358783149],[7, 1907454352],[8, 1397198078]
-,[9, 2132324222],[10, 1671467266]], modulus 2147483647
+,[9, 2132324222],[10, 1671467266]]
 modulus = 2147483647
 
 # Lagrange Interpolation in a finite field
